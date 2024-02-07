@@ -1,16 +1,17 @@
-<div class="container">
+<div class="container p-3">
   <h1>Beers</h1>
-  <div class="row">
+  <div class="row gy-3">
     <% @beers.each do |beer| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <%= image_tag beer.photo_url , class: "card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= beer.name %></h5>
-            <p class="card-text"><%= beer.category.name %></p>
-            <%= link_to "More details", beer_path(beer), class: "btn btn-primary" %>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <%= link_to beer_path(beer), class: "text-decoration-none zoom" do %>
+          <div class="card border shadow h-100">
+            <%= image_tag beer.photo_url , class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= beer.name %></h5>
+              <p class="card-text"><%= beer.category.name %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
